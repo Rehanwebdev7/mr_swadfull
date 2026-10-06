@@ -107,13 +107,18 @@ const schemaOrgJSONLD = {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url.origin).href} />
 
-<!-- Preload Critical LCP Logo -->
+<!-- Preload Critical LCP Assets -->
 <link rel="preload" as="image" href="/assets/LOGO.webp" fetchpriority="high" type="image/webp" />
+<link rel="preload" as="image" href="/assets/premium-family-mix-tea.webp" fetchpriority="high" type="image/webp" />
 
-<!-- Google Fonts -->
+<!-- Google Fonts (Non-Blocking Asynchronous Load) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</noscript>
 
 <!-- JSON-LD Structured Data for Google Ranking -->
 <script type="application/ld+json" set:html={JSON.stringify(schemaOrgJSONLD)} />
