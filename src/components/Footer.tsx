@@ -85,8 +85,12 @@ export const Footer: React.FC = () => {
             <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center gap-3">
                 <img 
-                  src="/assets/LOGO.png" 
+                  src="/assets/LOGO.webp" 
                   alt="Mr. Swadful Foods" 
+                  width="180"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
                   className="h-14 sm:h-16 w-auto object-contain drop-shadow-md" 
                 />
                 <div>

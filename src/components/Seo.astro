@@ -107,6 +107,9 @@ const schemaOrgJSONLD = {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url.origin).href} />
 
+<!-- Preload Critical LCP Logo -->
+<link rel="preload" as="image" href="/assets/LOGO.webp" fetchpriority="high" type="image/webp" />
+
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

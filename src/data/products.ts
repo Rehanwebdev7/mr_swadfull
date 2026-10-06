@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     name: "Premium Family Mix Tea",
     category: "Tea",
     brand: "Mr. SWADFUL",
-    image: "/assets/premium-family-mix-tea.png",
+    image: "/assets/premium-family-mix-tea.webp",
     short: "Rich family blend, highly aromatic and full-bodied classic chai.",
     description: "A meticulously crafted blend of hand-picked upper Assam CTC leaf and fragrant Nilgiri tea leaves. Specially developed for Indian households who demand a rich, aromatic morning cup with the perfect deep reddish-amber hue when brewed with fresh milk and traditional spices.",
     highlights: [
@@ -72,7 +72,7 @@ export const PRODUCTS: Product[] = [
     name: "Perfect Family Mix Tea",
     category: "Tea",
     brand: "Mr. SWADFUL",
-    image: "/assets/perfect-family-mix-tea.png",
+    image: "/assets/perfect-family-mix-tea.webp",
     short: "Everyday comforting chai — smooth taste, rich warm color.",
     description: "Our signature daily blend crafted for smooth taste, consistent strength, and comforting warmth. Designed for daily morning and evening tea sessions with family or workplace tea breaks.",
     highlights: [
@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
     name: "Strong Dust Tea",
     category: "Tea",
     brand: "Mr. SWADFUL",
-    image: "/assets/strong-dust-tea.png",
+    image: "/assets/strong-dust-tea.webp",
     short: "Bold, kadak dust tea for instant strong cutting chai.",
     description: "Fine-grade dust tea brewed for maximum strength in minimum time. Essential for roadside cutting-chai vendors, dhabas, and lovers of thick, energetic, highly refreshing kadak chai.",
     highlights: [
@@ -144,7 +144,7 @@ export const PRODUCTS: Product[] = [
     name: "Premium CTC Tea",
     category: "Tea",
     brand: "Mr. SWADFUL",
-    image: "/assets/premium-ctc-tea.png",
+    image: "/assets/premium-ctc-tea.webp",
     short: "High-grade CTC granules — brisk, strong & vibrant.",
     description: "Selected uniform CTC granules cut with precision to release intense flavor, brisk body, and a vibrant reddish brew. Perfect for gifting and premium hotel tea services.",
     highlights: [
@@ -179,7 +179,7 @@ export const PRODUCTS: Product[] = [
     name: "Mr. Cup Bag",
     category: "Tea",
     brand: "Mr. CUP",
-    image: "/assets/mr-cup-bag.png",
+    image: "/assets/mr-cup-bag.webp",
     short: "Commercial bulk bag for tea shops, canteens & catering.",
     description: "High-mileage bulk packaging specifically engineered for commercial tea stalls, hotel kitchens, corporate canteens, and large-scale caterers.",
     highlights: [
@@ -214,7 +214,7 @@ export const PRODUCTS: Product[] = [
     name: "Mr. Cup Pack",
     category: "Tea",
     brand: "Mr. CUP",
-    image: "/assets/mr-cup-pack.png",
+    image: "/assets/mr-cup-pack.webp",
     short: "Retail-ready household pack under the trusted Mr. CUP brand.",
     description: "Affordable, high-quality household chai pack brought to you under the popular Mr. CUP line. Delivers rich taste and pleasant aroma at budget-friendly consumer pricing.",
     highlights: [
@@ -249,7 +249,7 @@ export const PRODUCTS: Product[] = [
     name: "Red Chilli Powder",
     category: "Spices",
     brand: "Mr. SWADFUL",
-    image: "/assets/red-chilli-powder.png",
+    image: "/assets/red-chilli-powder.webp",
     short: "Vibrant natural red, freshly ground sun-dried chillies.",
     description: "Sourced from top sun-dried red chilli farms, stemless cleaned, and cold-ground in traditional mills to preserve natural capsaicin oils and brilliant crimson color without artificial dyes.",
     highlights: [
@@ -285,7 +285,7 @@ export const PRODUCTS: Product[] = [
     name: "Turmeric Powder",
     category: "Spices",
     brand: "Mr. SWADFUL",
-    image: "/assets/turmeric-powder.png",
+    image: "/assets/turmeric-powder.webp",
     short: "High-curcumin golden turmeric, earthy & highly aromatic.",
     description: "Prime quality turmeric fingers polished, cleaned, and ground into fine golden powder. High curcumin content ensures vibrant immunity-boosting wellness and authentic Indian yellow curry depth.",
     highlights: [
@@ -320,7 +320,7 @@ export const PRODUCTS: Product[] = [
     name: "Coriander Powder",
     category: "Spices",
     brand: "Mr. SWADFUL",
-    image: "/assets/coriander-powder.png",
+    image: "/assets/coriander-powder.webp",
     short: "Fragrant roasted coriander (Dhaniya), freshly ground.",
     description: "Whole green coriander seeds lightly roasted and freshly ground to capture citrusy, sweet floral notes that enhance gravy textures and curry aroma.",
     highlights: [
@@ -355,7 +355,7 @@ export const PRODUCTS: Product[] = [
     name: "Elaichi (Cardamom)",
     category: "Spices",
     brand: "Mr. SWADFUL",
-    image: "/assets/elaichi-cardamom.png",
+    image: "/assets/elaichi-cardamom.webp",
     short: "Whole green cardamom pods — Queen of Spices for chai & sweets.",
     description: "Handpicked 8mm+ jumbo green cardamom pods sourced from Idukki, Kerala. Packed with sweet volatile oils, intense floral aroma, and pristine green pods for luxury tea and authentic mithai.",
     highlights: [
@@ -390,7 +390,7 @@ export const PRODUCTS: Product[] = [
     name: "Special Urad Papad",
     category: "Papad",
     brand: "Mr. SWADFUL",
-    image: "/assets/special-urad-papad.png",
+    image: "/assets/special-urad-papad.webp",
     short: "Crisp traditional urad papad with asafoetida & black pepper hint.",
     description: "Handcrafted in small batches using premium Urad dal flour, pure Sajji khar, hing (asafoetida), and crushed black pepper. Puffs up ultra-light, delightfully crunchy, and melts in the mouth with authentic Maharashtrian taste.",
     highlights: [

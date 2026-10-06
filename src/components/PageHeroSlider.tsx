@@ -28,19 +28,19 @@ interface PageHeroSliderProps {
 
 const defaultSlides: SlideItem[] = [
   {
-    image: '/assets/tea_harvest_hero.png',
+    image: '/assets/tea_harvest_hero.webp',
     badge: 'ESTATE DIRECT TEAS',
     title: 'Assam & Nilgiri Chai Blends',
     subtitle: 'Hand-picked CTC granules & aromatic tea leaves for rich morning kadak chai.'
   },
   {
-    image: '/assets/spices_field_hero.png',
+    image: '/assets/spices_field_hero.webp',
     badge: 'COLD-GROUND PURITY',
     title: '100% Pure Indian Spices',
     subtitle: 'High-curcumin turmeric, rich red chilli powder, coriander & green elaichi.'
   },
   {
-    image: '/assets/papad_tradition_hero.png',
+    image: '/assets/papad_tradition_hero.webp',
     badge: 'DHULE HERITAGE RECIPE',
     title: 'Handcrafted Crisp Urad Papad',
     subtitle: 'Hand-rolled urad dal papad infused with Sajji khar, hing & crushed black pepper.'
@@ -95,6 +95,10 @@ export const PageHeroSlider: React.FC<PageHeroSliderProps> = ({
           <img
             src={currentSlide.image}
             alt={currentSlide.title || title}
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover filter brightness-[0.75]"
           />
         </motion.div>

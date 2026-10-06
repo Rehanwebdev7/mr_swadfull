@@ -115,8 +115,12 @@ export const Header: React.FC<{ currentPath?: string }> = ({ currentPath = '/' }
           <a href="/" className="flex items-center group shrink-0 py-1">
             <div className="relative flex items-center">
               <img 
-                src="/assets/LOGO.png" 
+                src="/assets/LOGO.webp" 
                 alt="Mr. Swadful Foods" 
+                width="180"
+                height="64"
+                loading="eager"
+                fetchPriority="high"
                 className="h-12 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm" 
               />
             </div>
