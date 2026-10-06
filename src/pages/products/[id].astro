@@ -1,0 +1,206 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PRODUCTS, type Product } from '../../data/products';
+import FlavorChart from '../../components/FlavorChart';
+import ProductCard from '../../components/ProductCard';
+import PageHeroSlider from '../../components/PageHeroSlider';
+import { 
+  Star, Check, ShieldCheck, ArrowRight, Truck, 
+  Clock, Package, MapPin, Sparkles, ShoppingBag 
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  return PRODUCTS.map((product) => ({
+    params: { id: product.id },
+    props: { product }
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const relatedProducts = PRODUCTS.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
+---
+
+<Layout
+  title={`${product.name} — ${product.brand} | Mr. Swadful Foods`}
+  description={product.description}
+  image={product.image}
+>
+  {/* HERO SLIDER BANNER AT TOP */}
+  <PageHeroSlider
+    client:load
+    badgeText={`${product.brand} • ${product.category.toUpperCase()}`}
+    title={product.name}
+    subtitle={product.tagline || product.description}
+    slides={[
+      {
+        image: product.image,
+        badge: `${product.brand} • ${product.category.toUpperCase()}`,
+        title: product.name,
+        subtitle: product.tagline || product.description
+      },
+      {
+        image: '/assets/tea_harvest_hero.png',
+        badge: 'ESTATE DIRECT SOURCING',
+        title: 'Assam & Nilgiri Chai Gardens',
+        subtitle: 'Hand-picked CTC tea granules and fresh estate leaves.'
+      },
+      {
+        image: '/assets/spices_field_hero.png',
+        badge: '100% PURE SPICES',
+        title: 'Stone-Ground Culinary Flavor',
+        subtitle: 'No preservatives, zero synthetic colors, pure essential oils.'
+      }
+    ]}
+    breadcrumbs={[
+      { label: 'Products', href: '/products' },
+      { label: product.category, href: `/products?category=${product.category}` },
+      { label: product.name }
+    ]}
+  />
+
+  <div class="py-12 sm:py-20 bg-[#FAF6F0] min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      {/* Breadcrumb */}
+      <nav class="flex items-center gap-2 text-xs font-semibold text-brand-muted dark:text-brand-cream/60">
+        <a href="/" class="hover:text-brand-gold">Home</a>
+        <span>/</span>
+        <a href="/products" class="hover:text-brand-gold">Products</a>
+        <span>/</span>
+        <a href={`/products?category=${product.category}`} class="hover:text-brand-gold">{product.category}</a>
+        <span>/</span>
+        <span class="text-brand-gold font-bold">{product.name}</span>
+      </nav>
+
+      {/* Main Product Spotlight Grid */}
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        {/* Left Photo Column */}
+        <div class="lg:col-span-5 glass-panel bg-brand-charcoal/80 rounded-3xl p-8 border border-brand-gold/30 flex flex-col items-center justify-center relative shadow-2xl">
+          <div class="absolute top-4 left-4 flex gap-2">
+            <span class="px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold text-xs font-bold uppercase tracking-widest border border-brand-gold/40">
+              {product.brand}
+            </span>
+            {product.isBestseller && (
+              <span class="px-3 py-1 rounded-full bg-brand-red text-white text-xs font-black uppercase tracking-widest shadow">
+                ★ Bestseller
+              </span>
+            )}
+          </div>
+
+          <img
+            src={product.image}
+            alt={product.name}
+            class="h-80 sm:h-96 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 my-4"
+          />
+
+          <div class="w-full pt-4 border-t border-brand-gold/20 grid grid-cols-2 gap-4 text-center text-xs text-brand-cream/80">
+            <div>
+              <div class="font-bold text-brand-gold text-sm">{product.specs.shelfLife}</div>
+              <div class="text-[10px] text-brand-cream/60 uppercase">Shelf Life</div>
+            </div>
+            <div>
+              <div class="font-bold text-brand-gold text-sm">{product.specs.origin}</div>
+              <div class="text-[10px] text-brand-cream/60 uppercase">Source Origin</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Info Column */}
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div>
+            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-2">
+              <Star class="w-4 h-4 fill-amber-400" />
+              <span>{product.rating} / 5.0</span>
+              <span class="text-brand-muted dark:text-brand-cream/50 text-xs">({product.reviewCount} verified ratings)</span>
+            </div>
+            <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-brand-main dark:text-brand-cream">
+              {product.name}
+            </h1>
+            <p class="text-sm sm:text-base text-brand-muted dark:text-brand-cream/80 mt-3 leading-relaxed">
+              {product.description}
+            </p>
+          </div>
+
+          {/* Key Highlights list */}
+          <div class="p-5 rounded-2xl bg-brand-cream-warm dark:bg-brand-charcoal/60 border border-brand-gold/20 space-y-2">
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-gold">Product Features & Benefits</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-brand-main dark:text-brand-cream">
+              {product.highlights.map((h, i) => (
+                <div key={i} class="flex items-center gap-2">
+                  <Check class="w-4 h-4 text-brand-gold shrink-0" />
+                  <span>{h}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Specs List */}
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="p-3.5 rounded-xl bg-brand-cream-warm dark:bg-brand-green-deep/60 border border-brand-gold/20">
+              <div class="text-brand-gold font-bold">Packaging Formats</div>
+              <div class="text-brand-muted dark:text-brand-cream/80 mt-1">{product.specs.packagingSizes.join(', ')}</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-brand-cream-warm dark:bg-brand-green-deep/60 border border-brand-gold/20">
+              <div class="text-brand-gold font-bold">Ingredients</div>
+              <div class="text-brand-muted dark:text-brand-cream/80 mt-1 line-clamp-2">{product.specs.ingredients}</div>
+            </div>
+          </div>
+
+          {/* Radar Sensory Matrix */}
+          <div class="pt-2">
+            <FlavorChart client:visible product={product} />
+          </div>
+
+          {/* Pricing & Order CTA Card */}
+          <div class="p-6 rounded-2xl bg-brand-green-deep text-brand-cream border border-brand-gold/40 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div>
+              <div class="text-xs text-brand-cream/60">Wholesale Base Rate</div>
+              <div class="text-3xl font-extrabold text-brand-gold">
+                ₹{product.wholesalePriceTier.basePricePerKg} <span class="text-xs text-brand-cream/70 font-normal">/ kg</span>
+              </div>
+              <div class="text-[11px] text-brand-gold mt-1 font-semibold">
+                MOQ: {product.wholesalePriceTier.moq} • Tier Discounts Up To 18% OFF
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <a
+                href="/wholesale"
+                class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-gold to-brand-gold-light text-brand-charcoal font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all text-center shadow-lg"
+              >
+                Request Bulk Rate Card
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Related Catalogue Items */}
+      {relatedProducts.length > 0 && (
+        <div class="pt-12 border-t border-brand-gold/20 space-y-8">
+          <div class="text-center max-w-xl mx-auto space-y-2">
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-gold">Similar Products</div>
+            <h3 class="font-serif text-2xl font-bold text-brand-main dark:text-brand-cream">
+              Complete Your Culinary Selection
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {relatedProducts.map((rel) => (
+              <ProductCard client:visible key={rel.id} product={rel} />
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </div>
+</Layout>

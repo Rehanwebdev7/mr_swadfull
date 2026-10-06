@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PRODUCTS } from '../../data/products';
+import ProductCard from '../../components/ProductCard';
+import PageHeroSlider from '../../components/PageHeroSlider';
+---
+
+<Layout 
+  title="All Products — Tea, Spices & Papad | Mr. Swadful Foods"
+  description="Explore the complete 11-product catalogue of Mr. Swadful Foods. Premium Assam CTC Tea, Strong Dust Tea, Red Chilli, Turmeric, Elaichi & Handcrafted Urad Papad."
+>
+  {/* HERO SLIDER BANNER AT TOP */}
+  <PageHeroSlider
+    client:load
+    badgeText="COMPLETE PRODUCT RANGE"
+    title="Our Signature"
+    highlightText="Catalogue"
+    subtitle="From hand-picked Assam tea gardens to stone-ground spices and traditional handcrafted papad — browse our complete lineup available for household and wholesale bulk ordering."
+    breadcrumbs={[{ label: 'Products' }]}
+  />
+
+  <div class="py-12 sm:py-20 bg-[#FAF6F0] min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      {/* Catalogue Filter Tabs & Grid Container */}
+      <div class="space-y-8">
+        
+        {/* Filter Pills */}
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/products"
+            class="px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-wider transition-all border bg-[#D4A017] text-[#0A2920] border-[#D4A017] shadow-md hover:scale-105"
+          >
+            All Products (11)
+          </a>
+          <a
+            href="/products?category=Tea"
+            class="px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all border bg-white border-[#D4A017]/30 hover:border-[#D4A017] text-[#0A2920] shadow-sm hover:scale-105"
+          >
+            Tea Blends (6)
+          </a>
+          <a
+            href="/products?category=Spices"
+            class="px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all border bg-white border-[#D4A017]/30 hover:border-[#D4A017] text-[#0A2920] shadow-sm hover:scale-105"
+          >
+            Pure Spices (4)
+          </a>
+          <a
+            href="/products?category=Papad"
+            class="px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all border bg-white border-[#D4A017]/30 hover:border-[#D4A017] text-[#0A2920] shadow-sm hover:scale-105"
+          >
+            Urad Papad (1)
+          </a>
+        </div>
+
+        {/* Product Cards Grid */}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PRODUCTS.map((product) => (
+            <ProductCard client:visible key={product.id} product={product} />
+          ))}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</Layout>

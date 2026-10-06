@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PRODUCTS, COMPANY_INFO } from '../data/products';
+import ProductCard from '../components/ProductCard';
+import CategoryShowcase from '../components/CategoryShowcase';
+import CounterStats from '../components/CounterStats';
+import BrandTimeline from '../components/BrandTimeline';
+import OurPromise from '../components/OurPromise';
+import TestimonialsSection from '../components/TestimonialsSection';
+import FaqAccordion from '../components/FaqAccordion';
+---
+
+<Layout 
+  title="Mr. Swadful Foods — Premium Tea, Spices & Papad | Dhule, Maharashtra"
+  description="Official Mr. Swadful Foods portal. Hand-picked Assam CTC & Nilgiri chai blends, cold-ground turmeric, red chilli, cardamom & handcrafted urad papad since 2011."
+>
+  
+  {/* HERO SECTION - FULLSCREEN VIEWPORT FIT WITH BLURRED VIDEO & ZERO GREEN TINT */}
+  <section class="relative min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden text-white border-b-2 border-[#D4A017]/40">
+    
+    {/* Blurred Background Video */}
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      poster="/assets/premium-family-mix-tea.png"
+      class="absolute inset-0 w-full h-full object-cover scale-110 filter blur-[4px] brightness-90 transition-transform duration-1000 z-0"
+    >
+      <source src="/assets/HERO.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    {/* Neutral Dark Glass Overlay (NO GREEN TINT) */}
+    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/75 z-10"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/30 to-black/80 z-10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-20 w-full">
+      <div class="max-w-4xl space-y-6 text-center lg:text-left">
+        
+        {/* Top Badge */}
+        <div class="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-black/60 border-2 border-[#D4A017] text-[#F3C649] text-xs font-black uppercase tracking-widest shadow-2xl backdrop-blur-md">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F3C649] animate-ping"></span>
+          <span>A Right Choice for Tea Cravings • Dhule Since 2011</span>
+        </div>
+
+        {/* Hero Headline */}
+        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-2xl">
+          Authentic Flavor. <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F3C649] via-[#D4A017] to-[#FFF0C2]">
+            Uncompromising Quality.
+          </span>
+        </h1>
+
+        {/* Hero Subtitle */}
+        <p class="text-base sm:text-xl text-[#F3F4F6] max-w-3xl font-medium leading-relaxed drop-shadow">
+          Sourcing hand-picked Assam & Nilgiri tea leaves, cold-ground pure spices, and handcrafted crisp urad papad for millions of households and 2,500+ wholesale partners across Maharashtra.
+        </p>
+
+        {/* Action CTAs */}
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+          <a
+            href="/products"
+            class="w-full sm:w-auto px-9 py-4.5 rounded-2xl bg-gradient-to-r from-[#D4A017] to-[#F3C649] text-[#0A2920] font-black text-sm uppercase tracking-wider hover:scale-105 transition-all shadow-2xl hover:shadow-[#D4A017]/50 flex items-center justify-center gap-2 border border-white/40"
+          >
+            <span>Explore Catalogue</span>
+            <svg class="w-4 h-4 text-[#0A2920]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+
+          <a
+            href="/wholesale"
+            class="w-full sm:w-auto px-9 py-4.5 rounded-2xl bg-white/15 backdrop-blur-md border-2 border-[#D4A017] text-[#FAF6F0] font-bold text-sm uppercase tracking-wider hover:bg-[#D4A017]/30 transition-all flex items-center justify-center gap-2 shadow-xl"
+          >
+            <svg class="w-4 h-4 text-[#F3C649]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>B2B Direct Pricing</span>
+          </a>
+        </div>
+
+        {/* Key Badges */}
+        <div class="pt-8 border-t border-white/20 grid grid-cols-3 gap-4 text-center lg:text-left text-xs font-bold text-[#F3F4F6]">
+          <div class="flex items-center justify-center lg:justify-start gap-2">
+            <svg class="w-5 h-5 text-[#F3C649] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span>FSSAI Certified</span>
+          </div>
+          <div class="flex items-center justify-center lg:justify-start gap-2">
+            <svg class="w-5 h-5 text-[#F3C649] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+            <span>100% Pure Guarantee</span>
+          </div>
+          <div class="flex items-center justify-center lg:justify-start gap-2">
+            <svg class="w-5 h-5 text-[#F3C649] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Direct Factory Supply</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {/* ANIMATED STATS COUNTER SECTION - PLACED DIRECTLY BELOW HERO VIDEO */}
+  <section class="py-6 bg-[#F5EFE6] border-b-2 border-[#D4A017]/30 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CounterStats client:visible />
+    </div>
+  </section>
+
+
+  {/* 3 DEDICATED CATEGORY SHOWCASE SECTIONS (ONE BELOW THE OTHER) */}
+  
+  {/* SECTION 1: TEA CATEGORY SHOWCASE (HEADER RIGHT, DETAILS LEFT, IMAGE RIGHT) */}
+  <CategoryShowcase
+    client:visible
+    category="Tea"
+    sectionNumber="01"
+    badgeText="Assam & Nilgiri Chai Blends"
+    heading="Authentic Tea Blends Collection"
+    description="Hand-picked CTC granules & aromatic orthodox dust blends crafted for rich morning kadak chai."
+    bgClass="bg-[#FAF6F0]"
+    imagePosition="right"
+    headerPosition="right"
+  />
+
+  {/* SECTION 2: SPICES CATEGORY SHOWCASE (HEADER LEFT, IMAGE LEFT, DETAILS RIGHT) */}
+  <CategoryShowcase
+    client:visible
+    category="Spices"
+    sectionNumber="02"
+    badgeText="Stone-Ground Purity"
+    heading="Cold-Ground Pure Spices Collection"
+    description="100% natural turmeric, red chilli, coriander & jumbo elaichi ground in hygienic temperature-controlled mills."
+    bgClass="bg-[#F5EFE6]"
+    imagePosition="left"
+    headerPosition="left"
+  />
+
+  {/* SECTION 3: PAPAD CATEGORY SHOWCASE (HEADER RIGHT, DETAILS LEFT, IMAGE RIGHT) */}
+  <CategoryShowcase
+    client:visible
+    category="Papad"
+    sectionNumber="03"
+    badgeText="Traditional Dhule Recipe"
+    heading="Handcrafted Crisp Urad Papad Collection"
+    description="Hand-rolled urad dal papad infused with Sajji khar, hing, and crushed black pepper for an authentic crunchy bite."
+    bgClass="bg-[#FAF6F0]"
+    imagePosition="right"
+    headerPosition="right"
+  />
+
+  {/* OUR JOURNEY BRAND TIMELINE SECTION */}
+  <BrandTimeline client:visible />
+
+  {/* OUR PROMISE SECTION */}
+  <OurPromise client:visible />
+
+  {/* TESTIMONIALS SECTION */}
+  <TestimonialsSection client:visible />
+
+  {/* FAQ ACCORDION SECTION */}
+  <FaqAccordion client:visible />
+
+
+  {/* WHY CHOOSE US / BRAND STORY */}
+  <section class="py-16 sm:py-24 bg-[#F5EFE6] text-[#0A2920]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0F382C] text-[#F3C649] text-xs font-bold uppercase tracking-widest">
+            The Dhule Heritage
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#0A2920]">
+            Rooted in Tradition, Crafted for Modern Kitchens
+          </h2>
+          <p class="text-sm text-[#2D4D41] leading-relaxed font-medium">
+            Founded in 2011 in Dhule, Maharashtra, Mr. Swadful Foods has grown from a local tea blender into a trusted food brand. We carefully select tea leaves from Assam and Nilgiri estates and grind our spices in hygienic, temperature-controlled mills.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 text-xs font-semibold">
+            <div class="p-4 rounded-2xl bg-[#FFFFFF] border-2 border-[#D4A017]/30 shadow-md">
+              <div class="text-[#0F382C] font-bold text-sm mb-1">Direct Estate Procurement</div>
+              <p class="text-[#4A645A] font-normal">Fresh Assam CTC & Nilgiri orthodox leaves without middlemen.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-[#FFFFFF] border-2 border-[#D4A017]/30 shadow-md">
+              <div class="text-[#0F382C] font-bold text-sm mb-1">Hygienic Stone Milling</div>
+              <p class="text-[#4A645A] font-normal">Preserving essential oils and natural vibrant color.</p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="/about" class="text-[#0F382C] font-bold text-sm hover:underline flex items-center gap-1.5">
+              <span>Read Our Full Story & Quality Journey →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="p-8 rounded-3xl bg-[#0A2920] border-2 border-[#D4A017]/40 text-white shadow-2xl space-y-6">
+            <h3 class="font-serif text-xl font-bold text-[#F3C649] border-b border-[#D4A017]/30 pb-3">
+              5-Stage Quality Guarantee
+            </h3>
+            <div class="space-y-4 text-xs">
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-[#D4A017] text-[#0A2920] font-extrabold flex items-center justify-center shrink-0">1</div>
+                <div>
+                  <div class="font-bold text-white">Raw Material Inspection</div>
+                  <div class="text-[#C1D4CD]">Grain size, moisture content, and aroma testing.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-[#D4A017] text-[#0A2920] font-extrabold flex items-center justify-center shrink-0">2</div>
+                <div>
+                  <div class="font-bold text-white">Hygienic Cleaning & De-stoning</div>
+                  <div class="text-[#C1D4CD]">Magnetic separators and air blowers for 100% purity.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-[#D4A017] text-[#0A2920] font-extrabold flex items-center justify-center shrink-0">3</div>
+                <div>
+                  <div class="font-bold text-white">Precision Temperature Milling</div>
+                  <div class="text-[#C1D4CD]">Cold-grinding to lock in natural capsaicin and curcumin.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-[#D4A017] text-[#0A2920] font-extrabold flex items-center justify-center shrink-0">4</div>
+                <div>
+                  <div class="font-bold text-white">Batch Tasting & Color Analysis</div>
+                  <div class="text-[#C1D4CD]">Master tasters approve every single batch before packing.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-[#D4A017] text-[#0A2920] font-extrabold flex items-center justify-center shrink-0">5</div>
+                <div>
+                  <div class="font-bold text-white">Triple-Foil Vacuum Packaging</div>
+                  <div class="text-[#C1D4CD]">Protecting tea & spice freshness against ambient moisture.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,116 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: string;
+}
+
+const {
+  title = "Mr. Swadful Foods — Premium Tea, Spices & Papad | Dhule, Maharashtra",
+  description = "Official Mr. Swadful Foods website. Premium Assam & Nilgiri Chai, freshly ground turmeric, red chilli powder, coriander & handcrafted urad papad since 2011. Wholesale B2B & Retail supplier across Maharashtra.",
+  image = "/assets/LOGO.png",
+  canonicalUrl = Astro.url.href,
+  type = "website"
+} = Astro.props;
+
+const siteName = "Mr. Swadful Foods";
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+
+// Schema.org Structured Data for LocalBusiness & Organization
+const schemaOrgJSONLD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mr-swadful.vercel.app/#organization",
+      "name": "Mr. Swadful Foods",
+      "url": "https://mr-swadful.vercel.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mr-swadful.vercel.app/assets/LOGO.png"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+919975609708",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": ["en", "hi", "mr"]
+        }
+      ],
+      "sameAs": [
+        "https://swadfulfoods.com"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://mr-swadful.vercel.app/#localbusiness",
+      "name": "Mr. Swadful Foods",
+      "image": "https://mr-swadful.vercel.app/assets/LOGO.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot no. 76, Vadjai Rd, Millat Nagar, Vaibhav Nagar",
+        "addressLocality": "Dhule",
+        "addressRegion": "Maharashtra",
+        "postalCode": "424001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 20.9042,
+        "longitude": 74.7749
+      },
+      "telephone": "+919975609708",
+      "priceRange": "₹₹",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ]
+    }
+  ]
+};
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="keywords" content="Mr Swadful, Swadful Foods, Dhule Tea, Assam Chai Dhule, Red Chilli Powder Maharashtra, Urad Papad Wholesale, Mr Cup Tea, Spices Manufacturer Maharashtra" />
+<meta name="author" content="Mr. Swadful Foods" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url.origin).href} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalUrl} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url.origin).href} />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- JSON-LD Structured Data for Google Ranking -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaOrgJSONLD)} />

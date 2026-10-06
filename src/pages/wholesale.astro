@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WholesaleCalculator from '../components/WholesaleCalculator';
+import CsvPreviewer from '../components/CsvPreviewer';
+import PageHeroSlider from '../components/PageHeroSlider';
+import { Sparkles, Truck, ShieldCheck, Award, Zap, FileSpreadsheet, Download, Phone, CheckCircle2 } from 'lucide-react';
+import { COMPANY_INFO } from '../data/products';
+---
+
+<Layout
+  title="B2B Wholesale & Distributor Hub — Mr. Swadful Foods"
+  description="Factory direct wholesale pricing for tea stalls, hotel chains, canteens & food distributors across Maharashtra. Interactive pricing calculator & CSV purchase list preview."
+>
+  {/* HERO SLIDER BANNER AT TOP */}
+  <PageHeroSlider
+    client:load
+    badgeText="FACTORY DIRECT WHOLESALE"
+    title="B2B Wholesale &"
+    highlightText="Distributor Network"
+    subtitle="Partner with Mr. Swadful Foods for high-yield tea blends, pure spices, and handcrafted papad. Calculate your volume discount or upload your bulk purchase CSV order list."
+    breadcrumbs={[{ label: 'Wholesale Hub' }]}
+  />
+
+  <div class="py-12 sm:py-20 bg-[#FAF6F0] min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      {/* Distributor Benefits Grid - PURE WHITE BRIGHT CARDS */}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-[#FFFFFF] p-6 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-3 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <Truck class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-lg font-bold text-[#0A2920]">Free Delivery</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">On wholesale orders over 100kg across Maharashtra.</p>
+        </div>
+
+        <div class="bg-[#FFFFFF] p-6 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-3 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <ShieldCheck class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-lg font-bold text-[#0A2920]">GST Invoice Credit</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">100% tax compliant GST input tax credit invoices.</p>
+        </div>
+
+        <div class="bg-[#FFFFFF] p-6 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-3 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <Award class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-lg font-bold text-[#0A2920]">Up to 18% Off</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">Tiered volume discounts for bulk stockists and canteens.</p>
+        </div>
+
+        <div class="bg-[#FFFFFF] p-6 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-3 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <Phone class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-lg font-bold text-[#0A2920]">Dedicated Manager</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">Direct relationship manager for fast dispatch.</p>
+        </div>
+      </div>
+
+      {/* Interactive Pricing Calculator */}
+      <div class="space-y-4">
+        <WholesaleCalculator client:visible />
+      </div>
+
+      {/* PapaParse CSV Import Tool */}
+      <div class="space-y-4 pt-8 border-t border-[#0F382C]/15">
+        <CsvPreviewer client:visible />
+      </div>
+
+    </div>
+  </div>
+</Layout>

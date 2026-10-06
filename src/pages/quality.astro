@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeroSlider from '../components/PageHeroSlider';
+import { ShieldCheck, Award, CheckCircle2, Sparkles, FileText, Lock } from 'lucide-react';
+import { COMPANY_INFO } from '../data/products';
+---
+
+<Layout
+  title="Quality Assurance & FSSAI Certification — Mr. Swadful Foods"
+  description="Learn about the 18-point quality assurance process at Mr. Swadful Foods. FSSAI certified, zero artificial colors, laboratory tested for purity."
+>
+  {/* HERO SLIDER BANNER AT TOP */}
+  <PageHeroSlider
+    client:load
+    badgeText="UNCOMPROMISING FOOD SAFETY"
+    title="Quality Control &"
+    highlightText="Certifications"
+    subtitle="From incoming raw material checks to laboratory testing and vacuum foil sealing — every single package of Mr. Swadful meets strict FSSAI food safety regulations."
+    breadcrumbs={[{ label: 'Quality Assurance' }]}
+  />
+
+  <div class="py-12 sm:py-20 bg-[#FAF6F0] min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {COMPANY_INFO.certifications.map((cert, idx) => (
+          <div key={idx} class="p-6 rounded-3xl bg-[#FFFFFF] border-2 border-[#D4A017]/30 hover:border-[#D4A017] shadow-xl space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] font-bold">
+              <ShieldCheck class="w-5 h-5" />
+            </div>
+            <h3 class="font-serif text-base font-bold text-[#0A2920]">{cert.split(' ')[0]} {cert.split(' ')[1]}</h3>
+            <p class="text-xs text-[#3E5C51] font-medium">{cert}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-8 sm:p-12 rounded-3xl bg-[#0F382C] text-white border-2 border-[#D4A017]/40 space-y-8 shadow-2xl">
+        <div class="text-center max-w-xl mx-auto space-y-2">
+          <div class="text-xs font-black uppercase tracking-widest text-[#F3C649]">18-Point Laboratory Testing</div>
+          <h2 class="font-serif text-3xl font-extrabold text-white">What We Test In Every Batch</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs">
+          <div class="p-5 rounded-2xl bg-white/10 border border-[#D4A017]/30 space-y-2">
+            <div class="font-bold text-[#F3C649] text-sm">Moisture & Ash Ratio</div>
+            <p class="text-[#D1E0D9]">Maintained below 8% to prevent mold formation and ensure long shelf life.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white/10 border border-[#D4A017]/30 space-y-2">
+            <div class="font-bold text-[#F3C649] text-sm">Curcumin % Test</div>
+            <p class="text-[#D1E0D9]">Turmeric batches verified to contain over 3.5% natural curcumin for maximum wellness.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white/10 border border-[#D4A017]/30 space-y-2">
+            <div class="font-bold text-[#F3C649] text-sm">Zero Dye Verification</div>
+            <p class="text-[#D1E0D9]">100% free from Sudan dyes, lead chromate, or synthetic color additives.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

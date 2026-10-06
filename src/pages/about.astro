@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeroSlider from '../components/PageHeroSlider';
+import { COMPANY_INFO } from '../data/products';
+import { Sparkles, Award, ShieldCheck, MapPin, Heart, Users, CheckCircle2, ArrowRight } from 'lucide-react';
+---
+
+<Layout
+  title="Our Story — About Mr. Swadful Foods | Dhule, Maharashtra"
+  description="Discover the 15-year journey of Mr. Swadful Foods. Founded in 2011 in Dhule, Maharashtra, bringing authentic tea, pure spices, and crisp papad to kitchens nationwide."
+>
+  {/* HERO SLIDER BANNER AT TOP */}
+  <PageHeroSlider
+    client:load
+    badgeText="THE MR. SWADFUL JOURNEY"
+    title="15 Years of Culinary"
+    highlightText="Passion & Purity"
+    subtitle="From humble beginnings in Dhule in 2011 to becoming one of North Maharashtra's most trusted manufacturers of tea blends, cold-ground spices, and traditional papad."
+    breadcrumbs={[{ label: 'Our Story' }]}
+  />
+
+  <div class="py-12 sm:py-20 bg-[#FAF6F0] min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      {/* Story Cards - PURE WHITE BRIGHT DESIGN */}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#FFFFFF] p-8 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-4 shadow-xl hover:shadow-2xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <Heart class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-xl font-bold text-[#0A2920]">Our Philosophy</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">
+            Every Indian home deserves pure, aromatic tea and authentic spices free from artificial food colors or synthetic fillers. We hold ourselves to uncompromising quality in every single batch.
+          </p>
+        </div>
+
+        <div class="bg-[#FFFFFF] p-8 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-4 shadow-xl hover:shadow-2xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <Award class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-xl font-bold text-[#0A2920]">Direct Farm Sourcing</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">
+            We source our tea directly from prime Assam and Nilgiri estates, chilli from Guntur, turmeric from Nizamabad, and green cardamom from Idukki, Kerala.
+          </p>
+        </div>
+
+        <div class="bg-[#FFFFFF] p-8 rounded-3xl border-2 border-[#D4A017]/30 hover:border-[#D4A017] space-y-4 shadow-xl hover:shadow-2xl transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F382C] flex items-center justify-center text-[#F3C649] shadow-md">
+            <ShieldCheck class="w-6 h-6" />
+          </div>
+          <h3 class="font-serif text-xl font-bold text-[#0A2920]">Modern Factory Standards</h3>
+          <p class="text-xs text-[#3E5C51] font-medium leading-relaxed">
+            Our state-of-the-art processing facility at Vaibhav Nagar, Dhule features magnetic separators, dust extractors, and automated triple-layer foil packaging.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
